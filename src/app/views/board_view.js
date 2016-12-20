@@ -20,16 +20,19 @@ var BoardView = Backbone.View.extend({
 
     //logic for translating e.id to coordinates for game function
     var row = parseInt(e.currentTarget.id[0]);
-    console.log("row value:" + row);
     var column = parseInt(e.currentTarget.id[2]);
-    console.log("column value:" + column);
-    // console.log(e.currentTarget);
-    // Add class associated with player's number to determine marker color
-    $(e.currentTarget).addClass('clicked');
+    // console.log("row value:" + row);
+    // console.log("column value:" + column);
+
     console.log(this.model.emptySpace(row,column));
 
-    // var coordinates =
-    // this.model.emptySpace(e);
+
+    // Add class associated with player's number to determine marker color
+    // if (this.model.emptySpace(row,column) === true) {
+      $(e.currentTarget).addClass('clicked');
+    //
+    // }
+
 
     this.trigger('mark', this);
 
