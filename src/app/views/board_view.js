@@ -34,8 +34,8 @@ var BoardView = Backbone.View.extend({
     // }
 
 
-    this.trigger('mark', this);
-
+    this.trigger('turn', this);
+    // console.log(this);
     // We return false to tell jQuery not to run any more event handlers.
     // Otherwise, it would run the 'click' event handler on RolodexView
     // as well.

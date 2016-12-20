@@ -12,11 +12,12 @@ var ApplicationView = Backbone.View.extend({
       el: this.$('#board'),
       model: board
     });
-    this.listenTo(boardView, "mark", this.addMark);
+    this.listenTo(boardView, "turn", this.makeTurn);
   },
  //add mark should change the  board model
-  addMark: function(boardView) {
-  console.log("adding a mark");
+  makeTurn: function(boardView) {
+  console.log("taking a turn");
+  console.log(boardView);
 
   // console.log(boardView.model.get('mark'));
 },
