@@ -4,7 +4,8 @@ import BoardView from 'app/views/board_view';
 var ApplicationView = Backbone.View.extend({
   initialize: function(){
     console.log("ApplicationView created");
-    // this.render();
+    this.render();
+    // moving this boardView to render function
     var boardView = new BoardView({
       el: this.$('#board'),
       model: board
@@ -17,16 +18,16 @@ var ApplicationView = Backbone.View.extend({
   console.log(boardView.model.get('mark'));
 },
 
-  render: function(){
-    console.log("rendering within appView");
-    // var boardView = new BoardView({
-    //   // model:
-    //   el: this.$('#board')
-    // });
-    // boardView.render();
-    //
-    // return this;
-  }
+  // render: function(){
+  //   console.log("rendering within appView");
+  //   var boardView = new BoardView({
+  //     // model:this.model.board,
+  //     el: this.$('#board')
+  //   });
+  //   boardView.render();
+  //
+  //   return this;
+  // }
 });
 
 export default ApplicationView;
