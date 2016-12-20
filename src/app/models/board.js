@@ -7,13 +7,6 @@ const Board = Backbone.Model.extend({
     this.playingField =  [[0,0,0],[0,0,0],[0,0,0]];
   },
 
-  // emptySpace: function(row, column) {
-  //   if (this.playingField[row][column] === 0) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
   emptySpace: function(row, column) {
     if (this.playingField[row][column] === 0) {
       return true;
@@ -23,10 +16,5 @@ const Board = Backbone.Model.extend({
   }
 
 });
-// var Board = function() {
-//   this.playingField = [[0,0,0],[0,0,0],[0,0,0]];
-// };
-
-
 
 export default Board;
