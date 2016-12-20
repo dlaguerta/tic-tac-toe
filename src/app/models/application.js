@@ -24,6 +24,7 @@ const TicTacToe = Backbone.Model.extend({
   },
 
   checkWin: function() {
+
     var leftDiagonalSum = 0;
     var rightDiagonalSum = 0;
 
@@ -52,9 +53,9 @@ const TicTacToe = Backbone.Model.extend({
 
   turn:
   function(row, column) {
-    if (this.turnCount === 9 || this.checkWin() !== false) {
-      throw new Error('Game is over! Please clear your board for a new game.');
-    }
+    // if (this.turnCount === 9 || this.checkWin() !== false) {
+    //   throw new Error('Game is over! Please clear your board for a new game.');
+    // }
 
     // if space is empty, placeMarker
     // if not, throw error and start turn over
@@ -67,16 +68,14 @@ const TicTacToe = Backbone.Model.extend({
     this.turnCount += 1;
 
     // if turnCount >=5, check for winner
-    if (this.turnCount >= 5) {
-      if (this.checkWin() !== false) {
-        throw new Error("Player" + this.checkWin().marker + ' is the winner!');
-      }
-      else if (this.turnCount === 9) {
-        throw new Error("It's a tie!");
-      }
-    }
-
-    // if turnCount === 9, check for tie
+    // if (this.turnCount >= 5) {
+    //   if (this.checkWin() !== false) {
+    //     throw new Error("Player" + this.checkWin().marker + ' is the winner!');
+    //   }
+    //   else if (this.turnCount === 9) {
+    //     throw new Error("It's a tie!");
+    //   }
+    // }
 
     //this toggles the player at the end of the turn
     if (this.currentPlayer=== this.players[0]) {

@@ -14,8 +14,14 @@ var ApplicationView = Backbone.View.extend({
       model: this.model.board
     });
     this.listenTo(boardView, "turn", this.makeTurn);
+    // this.listenTo(boardView, "checkwinner", this.checkWinner);
   },
 
+  // checkWinner: function(boardView) {
+  //   console.log("we should check for a winner");
+  //   console.log(this.model.checkWin());
+  //   this.model.checkWin();
+  // },
 
   makeTurn: function(boardView) {
   console.log("taking a turn");
@@ -24,9 +30,16 @@ var ApplicationView = Backbone.View.extend({
 
   this.model.turn(boardView[0], boardView[1]);
   //this shows you where the marker was placed in the playing field array
-  console.log("the created board: " + this.model.board.playingField);
-
-
+  // if turnCount >=5, check for winner
+  if (this.model.turnCount >= 5) {
+    if (this.model.checkWin() !== false) {
+      throw new Error("Player" + this.model.checkWin().marker + ' is the winner!');
+    }
+    else if (this.model.turnCount === 9) {
+      throw new Error("It's a tie!");
+    }
+  }
+  // this.model.checkWin();
 },
 
   render: function(){

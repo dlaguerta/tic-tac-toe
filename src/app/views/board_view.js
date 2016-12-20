@@ -19,6 +19,7 @@ var BoardView = Backbone.View.extend({
 
   cellClick: function(e) {
     //logic for translating e.id to coordinates for game function
+    // console.log(this.model.playingField);
     var row = parseInt(e.currentTarget.id[0]);
     var column = parseInt(e.currentTarget.id[2]);
     // console.log(this.model.emptySpace(row,column));
@@ -30,7 +31,7 @@ var BoardView = Backbone.View.extend({
       $(e.currentTarget).addClass('player_two');
     }
 
-
+    // this.trigger('checkwinner', [this.model]);
     // We return false to tell jQuery not to run any more event handlers.
     return false;
   },
