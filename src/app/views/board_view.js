@@ -25,9 +25,9 @@ var BoardView = Backbone.View.extend({
 
     this.trigger('turn', [row, column]);
     // Add class associated with player's number to determine marker color
-    if (this.model.playingField[row][column] === 1) { $(e.currentTarget).addClass('clicked');
+    if (this.model.playingField[row][column] === 1) { $(e.currentTarget).addClass('player_one');
     } else if (this.model.playingField[row][column] === 5) {
-      $(e.currentTarget).addClass('other_clicked');
+      $(e.currentTarget).addClass('player_two');
     }
 
 
