@@ -7,7 +7,7 @@ describe('Player', function() {
   // console.log(Object.getOwnPropertyNames(testPlayer));
   describe('player', function() {
     it('should have a marker', function() {
-      expect(testPlayer.marker).toEqual(1);
+      expect(testPlayer.get('marker')).toEqual(1);
     });
   });
 });

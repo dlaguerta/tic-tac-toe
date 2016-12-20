@@ -7,7 +7,7 @@ describe('TicTacToe', function() {
 
   describe('ticTacToe', function() {
     it('should start the turn count at 0', function() {
-      expect(testGame.totalTurns).toEqual(0);
+      expect(testGame.get('totalTurns')).toEqual(0);
     });
 
     it('should initialize a new game with a new board', function() {
