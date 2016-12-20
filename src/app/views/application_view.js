@@ -11,19 +11,22 @@ var ApplicationView = Backbone.View.extend({
     // var board = new Board();
     var boardView = new BoardView({
       el: this.$('#board'),
-      model: board
+      model: this.model.board
     });
     this.listenTo(boardView, "turn", this.makeTurn);
   },
- //add mark should change the  board model
+
+
   makeTurn: function(boardView) {
   console.log("taking a turn");
   console.log("a player: " + JSON.stringify(this.model.players[0]));
   console.log("this is the current player: " + this.model.currentPlayer.get("num"));
 
   this.model.turn(boardView[0], boardView[1]);
+  //this shows you where the marker was placed in the playing field array
+  console.log("the created board: " + this.model.board.playingField);
 
-  // console.log(boardView.model.get('mark'));
+
 },
 
   render: function(){

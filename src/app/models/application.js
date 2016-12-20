@@ -9,7 +9,7 @@ const TicTacToe = Backbone.Model.extend({
     this.board = new Board();
     this.players = [new Player({
       num: 1
-    }), new Player({num: 5})];
+    }), new Player({ num: 5})];
     this.currentPlayer = this.players[0];
     this.turnCount = 0;
   },
@@ -58,8 +58,6 @@ const TicTacToe = Backbone.Model.extend({
     } else {
       throw new Error('Space is occupied. Pick an empty space.');
     }
-
-
 
     this.turnCount += 1;
 
