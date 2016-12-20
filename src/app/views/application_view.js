@@ -6,9 +6,16 @@ var ApplicationView = Backbone.View.extend({
     console.log("ApplicationView created");
     // this.render();
     var boardView = new BoardView({
-      el: this.$('#board')
+      el: this.$('#board'),
+      model: board
     });
+    this.listenTo(boardView, "mark", this.addMark);
   },
+ //add mark should change the  board model
+  addMark: function(boardView) {
+  console.log("adding a mark");
+  console.log(boardView.model.get('mark'));
+},
 
   render: function(){
     console.log("rendering within appView");

@@ -11,7 +11,7 @@ var BoardView = Backbone.View.extend({
   },
 
   events: {
-    'click td': 'cellClick'
+    'click td': 'cellClick',
   },
 
   cellClick: function(e) {
@@ -20,7 +20,7 @@ var BoardView = Backbone.View.extend({
 
     // Add class associated with player's number to determine marker color
     $(e.currentTarget).addClass('clicked');
-    // this.trigger('select', this);
+    this.trigger('mark', this);
 
     // We return false to tell jQuery not to run any more event handlers.
     // Otherwise, it would run the 'click' event handler on RolodexView
