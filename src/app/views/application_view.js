@@ -18,6 +18,7 @@ var ApplicationView = Backbone.View.extend({
   makeTurn: function(boardView) {
   console.log("taking a turn");
   console.log(boardView);
+  // @TODO NEED TO PASS COORDINATES HERE
 
   // console.log(boardView.model.get('mark'));
 },
