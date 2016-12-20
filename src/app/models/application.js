@@ -53,9 +53,9 @@ const TicTacToe = Backbone.Model.extend({
 
   turn:
   function(row, column) {
-    // if (this.turnCount === 9 || this.checkWin() !== false) {
-    //   throw new Error('Game is over! Please clear your board for a new game.');
-    // }
+    if (this.turnCount === 9 || this.checkWin() !== false) {
+      throw new Error('Game is over! Please clear your board for a new game.');
+    }
 
     // if space is empty, placeMarker
     // if not, throw error and start turn over
@@ -67,6 +67,7 @@ const TicTacToe = Backbone.Model.extend({
 
     this.turnCount += 1;
 
+    //note: moved this outside of this turn 
     // if turnCount >=5, check for winner
     // if (this.turnCount >= 5) {
     //   if (this.checkWin() !== false) {
