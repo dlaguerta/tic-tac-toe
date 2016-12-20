@@ -24,7 +24,7 @@ var BoardView = Backbone.View.extend({
     // console.log("row value:" + row);
     // console.log("column value:" + column);
 
-    console.log(this.model.emptySpace(row,column));
+    // console.log(this.model.emptySpace(row,column));
 
 
     // Add class associated with player's number to determine marker color

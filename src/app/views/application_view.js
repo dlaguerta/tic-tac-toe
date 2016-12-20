@@ -1,4 +1,5 @@
 import Backbone from 'backbone';
+// import TicTacToe from 'app/models/application';
 import Board from 'app/models/board';
 import BoardView from 'app/views/board_view';
 
@@ -17,7 +18,9 @@ var ApplicationView = Backbone.View.extend({
  //add mark should change the  board model
   makeTurn: function(boardView) {
   console.log("taking a turn");
-  console.log(boardView);
+  console.log("boardview has: " + boardView);
+  this.model.turn(boardView[0], boardView[1]);
+  // console.log(this.model.turn(boardView));
   // @TODO NEED TO PASS COORDINATES HERE
 
   // console.log(boardView.model.get('mark'));
