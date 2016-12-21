@@ -7,16 +7,13 @@ import $ from 'jquery';
 var ApplicationView = Backbone.View.extend({
   initialize: function(){
     console.log("ApplicationView created");
-    // this.render();
-    // moving this boardView to render function
-    // var board = new Board();
-    var boardView = new BoardView({
+    this.boardView = new BoardView({
       el: this.$('#board'),
       model: this.model.board
     });
 
-    this.listenTo(boardView, "turn", this.makeTurn);
-    this.listenTo(boardView, "checkwinner", this.checkWinner);
+    this.listenTo(this.boardView, "turn", this.makeTurn);
+    this.listenTo(this.boardView, "checkwinner", this.checkWinner);
   },
 
   events: {
@@ -29,8 +26,9 @@ var ApplicationView = Backbone.View.extend({
     // this.model.board.destroy();
     if (window.confirm("Are you sure you want to start a new game?")) {
           console.log("going to delete it!");
-          this.model.board = new Board();
-          $('td').removeClass();
+          this.model = new TicTacToe();
+          this.boardView.model = this.model.board;
+          this.render();
   }
 },
 
@@ -48,13 +46,7 @@ var ApplicationView = Backbone.View.extend({
 
   render: function(){
     console.log("rendering within appView");
-    //   var boardView = new BoardView({
-    //     // model:this.model.board,
-    //     el: this.$('#board')
-    //   });
-    //   boardView.render();
-    //
-    this.delegateEvents();
+    $('td').removeClass();
     return this;
   }
 });
