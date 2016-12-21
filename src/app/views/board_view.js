@@ -9,12 +9,16 @@ var BoardView = Backbone.View.extend({
   initialize: function() {
     console.log("BoardView created");
 
-    // this.render();
+    // this.listenTo(this.model, 'newGame', this.clearBoard);
   },
 
   events: {
     'click td': 'cellClick',
   },
+
+  // clearBoard: function(){
+  //   console.log('started new game');
+  // },
 
   cellClick: function(e) {
     //logic for translating e.id to coordinates for game function

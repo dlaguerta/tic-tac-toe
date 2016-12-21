@@ -1,7 +1,8 @@
 import Backbone from 'backbone';
-// import TicTacToe from 'app/models/application';
+import TicTacToe from 'app/models/application';
 import Board from 'app/models/board';
 import BoardView from 'app/views/board_view';
+import $ from 'jquery';
 
 var ApplicationView = Backbone.View.extend({
   initialize: function(){
@@ -13,9 +14,25 @@ var ApplicationView = Backbone.View.extend({
       el: this.$('#board'),
       model: this.model.board
     });
+
     this.listenTo(boardView, "turn", this.makeTurn);
     this.listenTo(boardView, "checkwinner", this.checkWinner);
   },
+
+  events: {
+  'click .btn-new-game': 'newGame'
+  },
+
+  newGame: function(event){
+    console.log("clicked new game button");
+    // console.log(this.model.board);
+    // this.model.board.destroy();
+    if (window.confirm("Are you sure you want to start a new game?")) {
+          console.log("going to delete it!");
+          this.model.board = new Board();
+          $('td').removeClass();
+  }
+},
 
   checkWinner: function(boardView) {
     if (this.model.turnCount >= 5) {
@@ -37,6 +54,7 @@ var ApplicationView = Backbone.View.extend({
     //   });
     //   boardView.render();
     //
+    this.delegateEvents();
     return this;
   }
 });
