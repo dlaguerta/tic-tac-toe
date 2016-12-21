@@ -12,7 +12,9 @@ td {
   margin: 20px;
   background-color: #78bec5;
   margin: 10px;
-  width: 100em;
+  width: 100px;
+  font-size: 60px;
+  text-align: center;
 }
 
 td:hover {

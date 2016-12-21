@@ -47,6 +47,7 @@ var ApplicationView = Backbone.View.extend({
   render: function(){
     console.log("rendering within appView");
     $('td').removeClass();
+    $('td').empty();
     return this;
   }
 });
