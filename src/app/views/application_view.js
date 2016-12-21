@@ -47,7 +47,7 @@ var ApplicationView = Backbone.View.extend({
         }
 
         $(".winner-message").append(message + winnerMarker);
-
+        $(".winner").empty();
         $(".winner").append( winnerMarker);
 
         $(".winner-message").show();
