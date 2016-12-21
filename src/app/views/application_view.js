@@ -59,6 +59,7 @@ var ApplicationView = Backbone.View.extend({
 
   makeTurn: function(boardView) {
     this.model.turn(boardView[0], boardView[1]);
+    
 
   },
 

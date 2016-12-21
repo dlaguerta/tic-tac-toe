@@ -29,6 +29,7 @@ var BoardView = Backbone.View.extend({
       $(e.currentTarget).addClass('player_two').append(this.model.playerTwoMarker);
     }
 
+
     //custom event for checking a winner
     this.trigger('checkwinner', [this.model]);
     // We return false to tell jQuery not to run any more event handlers.
