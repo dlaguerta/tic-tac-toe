@@ -31,7 +31,6 @@ var BoardView = Backbone.View.extend({
     }
 
     //custom event for checking a winner
-
     this.trigger('checkwinner', [this.model]);
     // We return false to tell jQuery not to run any more event handlers.
     return false;
