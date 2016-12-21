@@ -37,6 +37,17 @@ var ApplicationView = Backbone.View.extend({
       this.model.checkWin();
     if (this.model.checkWin() !== false) {
         // window.confirm("We have a winner!");
+        var message = "We have a winner! It's ";
+        var winner = this.model.checkWin();
+        var winnerMarker = '';
+        if ( winner.get("num") === 1) {
+          winnerMarker = this.model.board.playerOneMarker;
+        } else if (winner.get("num") === 5) {
+          winnerMarker = this.model.board.playerTwoMarker;
+        }
+
+        $(".winner-message").append(message + winnerMarker);
+
         $(".winner-message").show();
       }
       console.log(this.model.checkWin());
@@ -53,6 +64,7 @@ var ApplicationView = Backbone.View.extend({
     console.log("rendering within appView");
     $('td').removeClass();
     $('td').empty();
+    $(".winner-message").empty();
     $(".winner-message").hide();
     return this;
   }

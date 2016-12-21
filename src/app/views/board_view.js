@@ -9,16 +9,11 @@ var BoardView = Backbone.View.extend({
   initialize: function() {
     console.log("BoardView created");
 
-    // this.listenTo(this.model, 'newGame', this.clearBoard);
   },
 
   events: {
     'click td': 'cellClick',
   },
-
-  // clearBoard: function(){
-  //   console.log('started new game');
-  // },
 
   cellClick: function(e) {
     //logic for translating e.id to coordinates for game function
@@ -29,9 +24,9 @@ var BoardView = Backbone.View.extend({
     this.trigger('turn', [row, column]);
 
     // Add class associated with player's number to determine marker color
-    if (this.model.playingField[row][column] === 1) { $(e.currentTarget).addClass('player_one').append("&#128056;");
+    if (this.model.playingField[row][column] === 1) { $(e.currentTarget).addClass('player_one').append(this.model.playerOneMarker);
     } else if (this.model.playingField[row][column] === 5) {
-      $(e.currentTarget).addClass('player_two').append("&#128099;");
+      $(e.currentTarget).addClass('player_two').append(this.model.playerTwoMarker);
     }
 
     //custom event for checking a winner

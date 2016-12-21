@@ -5,6 +5,8 @@ import Application from 'app/models/application';
 const Board = Backbone.Model.extend({
   initialize: function(){
     this.playingField =  [[0,0,0],[0,0,0],[0,0,0]];
+    this.playerOneMarker = "&#128056;";
+    this.playerTwoMarker = "&#128099;";
   },
 
   emptySpace: function(row, column) {
