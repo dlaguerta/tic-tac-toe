@@ -48,6 +48,8 @@ var ApplicationView = Backbone.View.extend({
 
         $(".winner-message").append(message + winnerMarker);
 
+        $(".winner").append( winnerMarker);
+
         $(".winner-message").show();
       }
       console.log(this.model.checkWin());
