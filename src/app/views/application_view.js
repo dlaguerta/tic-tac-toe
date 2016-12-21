@@ -35,7 +35,12 @@ var ApplicationView = Backbone.View.extend({
   checkWinner: function(boardView) {
     if (this.model.turnCount >= 5) {
       this.model.checkWin();
+    if (this.model.checkWin() !== false) {
+        // window.confirm("We have a winner!");
+        $(".winner-message").show();
+      }
       console.log(this.model.checkWin());
+
     }
   },
 
@@ -48,6 +53,7 @@ var ApplicationView = Backbone.View.extend({
     console.log("rendering within appView");
     $('td').removeClass();
     $('td').empty();
+    $(".winner-message").hide();
     return this;
   }
 });
