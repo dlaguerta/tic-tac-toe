@@ -53,7 +53,7 @@ const TicTacToe = Backbone.Model.extend({
 
   turn:
   function(row, column) {
-    if (this.turnCount === 9 || this.checkWin() !== false) {
+    if (this.turnCount >= 9 || this.checkWin() !== false) {
       //tell person to start new game
       this.trigger("finished", this);
       throw new Error('Game is over! Please clear your board for a new game.');
