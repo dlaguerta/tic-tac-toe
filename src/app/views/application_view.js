@@ -42,7 +42,6 @@ var ApplicationView = Backbone.View.extend({
   newGame: function(event){
     console.log("clicked new game button");
     // console.log(this.model.board);
-    // this.model.board.destroy();
     if (window.confirm("Are you sure you want to start a new game?")) {
           console.log("going to delete it!");
           this.model = new TicTacToe();
@@ -87,6 +86,7 @@ var ApplicationView = Backbone.View.extend({
     $('td').empty();
     $(".winner-message").empty();
     $(".winner-message").hide();
+    $(".warning-message").empty();
     return this;
   }
 });

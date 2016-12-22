@@ -2,7 +2,6 @@ import _ from 'underscore';
 import $ from 'jquery';
 import Backbone from 'backbone';
 import Board from 'app/models/board';
-// import SpaceView from 'app/views/space_view';
 import Player from 'app/models/player';
 
 var BoardView = Backbone.View.extend({
