@@ -14,8 +14,9 @@ var ApplicationView = Backbone.View.extend({
 
     this.listenTo(this.boardView, "turn", this.makeTurn);
     this.listenTo(this.boardView, "checkwinner", this.checkWinner);
-    //trying to send a message to player when space is occupied
+    //send a message to player when space is occupied
     this.listenTo(this.model, "occupied", this.invalidChoice);
+    this.listenTo(this.model, "finished", this.reset);
   },
 
   events: {
@@ -23,10 +24,19 @@ var ApplicationView = Backbone.View.extend({
   },
 
   invalidChoice: function(){
-    console.log("this is an unvailable space");
     var message = "Space taken. Please pick a different space!";
     $(".warning-message").append(message);
     $(".warning-message").show();
+  },
+
+  reset: function(){
+    var message = "Game is over! Please clear your board for a new game.";
+    //empty first to remove any previous warning message
+    $(".warning-message").empty();
+
+    $(".warning-message").append(message);
+    $(".warning-message").show();
+
   },
 
   newGame: function(event){
@@ -45,7 +55,6 @@ var ApplicationView = Backbone.View.extend({
     if (this.model.turnCount >= 5) {
       this.model.checkWin();
     if (this.model.checkWin() !== false) {
-        // window.confirm("We have a winner!");
         var message = "We have a winner! It's ";
         var winner = this.model.checkWin();
         var winnerMarker = '';
@@ -61,7 +70,6 @@ var ApplicationView = Backbone.View.extend({
 
         $(".winner-message").show();
       }
-      console.log(this.model.checkWin());
 
     }
   },
