@@ -1,5 +1,11 @@
 * {
   font-family: 'Dosis', Arial, sans-serif;
+  color: white;
+}
+
+body {
+  background-color: #1A535C;
+
 }
 
 h1 {
@@ -10,6 +16,9 @@ table {
   border-collapse: separate;
   border-spacing: 7px 7px;
   table-layout: fixed;
+  background-color: #D7CEC7;;
+  border-radius: 5px;
+
 }
 
 tr {

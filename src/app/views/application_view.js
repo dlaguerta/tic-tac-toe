@@ -6,7 +6,6 @@ import $ from 'jquery';
 
 var ApplicationView = Backbone.View.extend({
   initialize: function(){
-    console.log("ApplicationView created");
     this.boardView = new BoardView({
       el: this.$('#board'),
       model: this.model.board
@@ -33,7 +32,6 @@ var ApplicationView = Backbone.View.extend({
     var message = "Game is over! Please clear your board for a new game.";
     //empty first to remove any previous warning message
     $(".warning-message").empty();
-
     $(".warning-message").append(message);
     $(".warning-message").show();
 
@@ -41,13 +39,11 @@ var ApplicationView = Backbone.View.extend({
 
   newGame: function(event){
     console.log("clicked new game button");
-    // console.log(this.model.board);
-    if (window.confirm("Are you sure you want to start a new game?")) {
-          console.log("going to delete it!");
+    // if (window.confirm("Are you sure you want to start a new game?")) {
           this.model = new TicTacToe();
           this.boardView.model = this.model.board;
           this.render();
-  }
+  // }
 },
 
   checkWinner: function(boardView) {
@@ -80,13 +76,12 @@ var ApplicationView = Backbone.View.extend({
 
   makeTurn: function(boardView) {
     this.model.turn(boardView[0], boardView[1]);
-
     $(".warning-message").empty();
 
   },
 
   render: function(){
-    console.log("rendering within appView");
+    // console.log("rendering within appView");
     $('td').removeClass();
     $('td').empty();
     $(".winner-message").empty();
