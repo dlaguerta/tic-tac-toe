@@ -7,7 +7,6 @@ import Player from 'app/models/player';
 var BoardView = Backbone.View.extend({
   initialize: function() {
     console.log("BoardView created");
-
   },
 
   events: {

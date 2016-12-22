@@ -53,6 +53,11 @@ var ApplicationView = Backbone.View.extend({
   checkWinner: function(boardView) {
     if (this.model.turnCount >= 5) {
       this.model.checkWin();
+      if ((this.model.checkWin() === false) && this.model.turnCount >=9 ) {
+        var tiemessage = "We have a tie!";
+        $(".winner-message").append(tiemessage);
+        $(".winner-message").show();
+      }
     if (this.model.checkWin() !== false) {
         var message = "We have a winner! It's ";
         var winner = this.model.checkWin();
