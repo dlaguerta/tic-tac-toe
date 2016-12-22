@@ -62,12 +62,13 @@ const TicTacToe = Backbone.Model.extend({
     if (this.board.emptySpace(row, column) === true) {
       this.placeMarker(row, column, this.currentPlayer);
     } else {
+      this.trigger("occupied", this);
       throw new Error('Space is occupied. Pick an empty space.');
     }
 
     this.turnCount += 1;
 
-    //note: moved this outside of this turn 
+    //note: moved this outside of this turn
     // if turnCount >=5, check for winner
     // if (this.turnCount >= 5) {
     //   if (this.checkWin() !== false) {

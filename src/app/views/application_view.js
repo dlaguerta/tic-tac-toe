@@ -14,10 +14,19 @@ var ApplicationView = Backbone.View.extend({
 
     this.listenTo(this.boardView, "turn", this.makeTurn);
     this.listenTo(this.boardView, "checkwinner", this.checkWinner);
+    //trying to send a message to player when space is occupied
+    this.listenTo(this.model, "occupied", this.invalidChoice);
   },
 
   events: {
   'click .btn-new-game': 'newGame'
+  },
+
+  invalidChoice: function(){
+    console.log("this is an unvailable space");
+    var message = "Space taken. Please pick a different space!";
+    $(".warning-message").append(message);
+    $(".warning-message").show();
   },
 
   newGame: function(event){
@@ -59,7 +68,8 @@ var ApplicationView = Backbone.View.extend({
 
   makeTurn: function(boardView) {
     this.model.turn(boardView[0], boardView[1]);
-    
+
+    $(".warning-message").empty();
 
   },
 
