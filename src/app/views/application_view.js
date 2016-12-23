@@ -13,7 +13,7 @@ var ApplicationView = Backbone.View.extend({
 
     this.listenTo(this.boardView, "turn", this.makeTurn);
     this.listenTo(this.boardView, "checkwinner", this.checkWinner);
-    //send a message to player when space is occupied
+    // send a message to player when space is occupied
     this.listenTo(this.model, "occupied", this.invalidChoice);
     this.listenTo(this.model, "finished", this.reset);
   },
@@ -34,7 +34,6 @@ var ApplicationView = Backbone.View.extend({
     $(".warning-message").empty();
     $(".warning-message").append(message);
     $(".warning-message").show();
-
   },
 
   newGame: function(event){
@@ -82,11 +81,14 @@ var ApplicationView = Backbone.View.extend({
 
   render: function(){
     // console.log("rendering within appView");
+    this.delegateEvents();
+
     $('td').removeClass();
     $('td').empty();
     $(".winner-message").empty();
     $(".winner-message").hide();
     $(".warning-message").empty();
+    $(".warning-message").hide();
     return this;
   }
 });

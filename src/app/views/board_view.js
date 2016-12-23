@@ -35,6 +35,7 @@ var BoardView = Backbone.View.extend({
   },
 
   render: function(){
+    this.delegateEvents();
 
   }
 });
